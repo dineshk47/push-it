@@ -85,3 +85,27 @@ def count_smaller_elements(nums):
     s_count = nums.count(smallest)
     result = len(nums) - s_count
     return result
+
+# You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. 
+# If a string is longer than the other, append the additional letters onto the end of the merged string.
+# Return the merged string.
+def merge_strings(string1, string2):
+    """
+    take an empty list, calculate the lenghts of both the string and derive the min length
+    loop on the range of min length and append chars from both the string in the range
+    then check the which string is larger and append the rest of the chars from that string and finally convert that list to str and return
+    """
+    merged = []
+    l1 = len(string1)
+    l2 = len(string2)
+    min_len = min(l1, l2)
+
+    for i in range(min_len):
+        merged.append(string1[i])
+        merged.append(string2[i])
+    
+    if l1 > min_len:
+        merged.append(l1[min_len:])
+    else:
+        merged.append(l2[min_len:])
+    
