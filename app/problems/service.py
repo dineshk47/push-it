@@ -109,3 +109,13 @@ def merge_strings(string1, string2):
     else:
         merged.append(l2[min_len:])
     
+
+# given a string "abcde" output should be {e{d{c{b{a}}}}}
+def in_str(string):
+    parts = string.split(".")
+    parts.reverse()
+    result = ""
+    for p in parts:
+        result += "{" + p
+    result += "}" * len(parts)
+    return result
